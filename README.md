@@ -79,21 +79,22 @@ The program validates if the input string conforms to the character set of the c
 # Example Interaction
 ```
 ./baseconv
-Enter the base of your input number(輸入進制)(e.g., 2, 8, 10, 16, 36, 64): 2
-Enter the number string in Base 2 (輸入數值) : 101110101101111111111111111111111111111
+Enter the base of your input number(輸入進制)(e.g., 2, 8, 10, 16, 36, 64): 10
+Enter the number string in Base 10 (輸入數值) : 123456789
 
-Conversion results for value 401311006719 (數值轉換結果):
-Base  2 : 101110101101111111111111111111111111111
-Base  8 : 5655777777777
-Base 10 : 401311006719
-Base 16 : 5d6fffffff
-Base 26 : bxzcmjnjz
-Base 32 : BNQZZZZZ
-Base 36 : 54cy7mkf
-Base 52 : upAOjRZ
-Base 58 : bxqtNQg
-Base 62 : 74325mT
-Base 64 : F1v////
+Conversion results for value 123456789 (數值轉換結果):
+Base  2 : 111010110111100110100010101
+Base  8 : 726746425
+Base 10 : 123456789
+Base 16 : 75bcd15
+Base 26 : kkeekb
+Base 32 : 3NQK8N
+Base 36 : 21i3v9
+Base 52 : qUbfb
+Base 58 : bUKpk
+Base 62 : 8m0Kx
+Base 64 : HW80V
+
 
 ```
 ### ⚙️ Dependencies
