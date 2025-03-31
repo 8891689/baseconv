@@ -2,9 +2,9 @@
 
 ## Description
 
-This is a command-line C program designed to convert numbers between various numeral systems (bases). It operates interactively, prompting the user first for the input base and then for the number string represented in that base. The program then converts the input value to a range of predefined target bases (Binary, Octal, Decimal, Hexadecimal, Base26, Base32, Base36, Base52, Base58, Base62, Base64) and displays all results.
+This is a command-line C program for converting numbers between various big-integer number systems (radixes). It runs interactively, first prompting the user for a radix, then prompting the user for a string of digits represented in that radix. The program then converts the input value to a series of predefined target radixes (binary, octal, decimal, hexadecimal, Base26, Base32, Base36, Base52, Base58, Base62, Base64) and displays all the results.
 
-Internally, the program uses `unsigned long long` to store the numerical value, allowing for the conversion of large integers.
+The latest version supports conversion of large integers, and the large integer calculation library has been implemented separately.
 
 ## Features
 
@@ -48,17 +48,17 @@ The program converts the input value to all the following bases for output, usin
 
 ## Compilation
 
-For example, there are `main.c` (containing the main program logic and interactive interface) and `baseconv.c` (containing the implementation of the core conversion functions `convert_base` and `convert_from_base`).
+For example, there is `baseconv.c` (containing the main program logic and the implementation of the core conversion functions `convert_base` and `convert_from_base` in the interactive interface) and `bigint.c` (containing a separate implementation of big integer calculations).
 
 Use the following GCC command to compile:
 
 ```bash
-gcc -o baseconv baseconv.c main.c
+gcc -o baseconv baseconv.c bigint.c
 ```
 
 -o baseconv: Specifies the output executable name as baseconv.
 
-baseconv.c main.c: Specifies the source files to compile.
+baseconv.c bigint.c : Specifies the source files to compile.
 
 
 
@@ -79,22 +79,26 @@ The program validates if the input string conforms to the character set of the c
 # Example Interaction
 ```
 ./baseconv
-Enter the base of your input number(輸入進制)(e.g., 2, 8, 10, 16, 36, 64): 10
-Enter the number string in Base 10 (輸入數值) : 123456789
+Enter the base of your input number (輸入進制) (e.g., 2, 8, 10, 16, 36, 64): 16
+ (Input accepts 0-9, a-f, A-F)
+Enter the number string in(輸入數值) Base 16: a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3
 
-Conversion results for value 123456789 (數值轉換結果):
-Base  2 : 111010110111100110100010101
-Base  8 : 726746425
-Base 10 : 123456789
-Base 16 : 75bcd15
-Base 26 : kkeekb
-Base 32 : 3NQK8N
-Base 36 : 21i3v9
-Base 52 : qUbfb
-Base 58 : bUKpk
-Base 62 : 8m0Kx
-Base 64 : HW80V
+Input 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3' (Base 16) converted to value 75263518707598184987916378021939673586055614731957507592904438851787542395619 (base 10).
 
+Conversion results for value 75263518707598184987916378021939673586055614731957507592904438851787542395619 (數值轉換結果):
+Base  2 : 1010011001100101101001000101100100100000010000100010111110011101010000010111111001001000011001111110111111011100010011111011100010100000010010100001111100111111111111110001111110100000011111101001100110001110100001101111011111110111101000100111101011100011
+Base  8 : 12314551054440204276352027711031767734237342402241747777617640375146164157376750475343
+Base 10 : 75263518707598184987916378021939673586055614731957507592904438851787542395619
+Base 16 : a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3
+Base 26 : cyjyytcpnwvukqtirxvglggjrutdmvtdbfkhwqfqovrgxyewainqcmt
+Base 32 : 19K5MHCJ0GHFKN0QWJ37XZE4ZE5098FKZZRZM1Z9K3M6YZVT4YQ3
+Base 36 : 45auvrm8e57zm8y2dyh0s3ows1n3bit9vrxsqcaikpyj7j7izn
+Base 52 : xDSKwAzlrIDvehqDgMhNZnKOposGeaOAfMWTzQvXaSnGt
+Base 58 : ccxz6dm7nUk4HoNrm4oVTxmqBhfYCjGd5NqrwX3JEXcr
+Base 62 : Dso1ycSnGU39ov88mMUMI0kMFax21oJDQy9FYKVPR9F
+Base 64 : KZlpFkgQi+dQX5IZ+/cT7igSh8//x+gfpmOhvf3onrj
+
+Restoration check from Base 64 OK.
 
 ```
 ### ⚙️ Dependencies
