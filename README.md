@@ -48,7 +48,7 @@ The program converts the input value to all the following bases for output, usin
 
 ## Compilation
 
-Assuming you have `main.c` (containing the main program logic and interactive interface) and `baseconv.c` (containing the implementations of the core conversion functions `convert_base` and `convert_from_base`).
+For example, there are `main.c` (containing the main program logic and interactive interface) and `baseconv.c` (containing the implementation of the core conversion functions `convert_base` and `convert_from_base`).
 
 Use the following GCC command to compile:
 
